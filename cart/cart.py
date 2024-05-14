@@ -23,4 +23,5 @@ class Cart(object):
         self.save()
 
     def save(self):
-        pass
+        # Oznaczenie sesji jako "zmodyfikowanej", aby upewnić się o jej zapisaniu
+        self.session.modified = True
