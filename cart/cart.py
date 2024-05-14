@@ -50,3 +50,7 @@ class Cart(object):
             item["price"] = Decimal(item["price"])
             item["total_price"] = item["price"] * item["quantity"]
             yield item
+
+    def __len__(self):
+        """Obliczenie liczby elementów w koszyku"""
+        return sum(item["quantity"] for item in self.cart.values())
