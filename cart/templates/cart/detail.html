@@ -32,6 +32,8 @@
                         <td>
                             <a href="{% url 'cart:cart_remove' product.id %}">Usuń</a>
                         </td>
+                        <td class="num">{{ item.price }} PLN</td>
+                        <td class="num">{{ item.total_price }} PLN</td>
                     </tr>
                 {% endwith %}
             {% endfor %}
