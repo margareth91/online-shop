@@ -37,7 +37,10 @@
                             </form>
                         </td>
                         <td>
-                            <a href="{% url 'cart:cart_remove' product.id %}">Usuń</a>
+                            <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                                <input type="submit" value="Usuń">
+                                {% csrf_token %}
+                            </form>
                         </td>
                         <td class="num">{{ item.price }} PLN</td>
                         <td class="num">{{ item.total_price }} PLN</td>
