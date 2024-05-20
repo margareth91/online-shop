@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import OrderItem
+from .models import Order, OrderItem
 
 
 class OrderItemInline(admin.TabularInline):
@@ -8,6 +8,7 @@ class OrderItemInline(admin.TabularInline):
     raw_id_fields = ["product"]
 
 
+@admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
         "id",
