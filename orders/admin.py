@@ -3,6 +3,8 @@ import datetime
 
 from django.contrib import admin
 from django.http import HttpResponse
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 from .models import Order, OrderItem
 
@@ -38,6 +40,11 @@ def export_to_csv(modeladmin, request, queryset):
 
 
 export_to_csv.short_description = "Export do CSV"
+
+
+def order_detail(obj):
+    url = reverse("orders:admin_order_detail", args=[obj.id])
+    return mark_safe(f'<a href="{url}">View</a>')
 
 
 @admin.register(Order)
